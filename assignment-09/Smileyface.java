@@ -25,15 +25,15 @@ class SmileyDrawing extends JPanel {
   public void paintComponent(Graphics drawingboard) {
     super.paintComponent(drawingboard); //husk denne
 
-    //Hode
+    //Head
     drawingboard.setColor((Color.YELLOW));
     drawingboard.fillOval(20, 20, 200, 200);
-    //Venstre øye
+    //Left eye
     drawingboard.setColor(Color.BLUE);
     drawingboard.fillOval(80, 80, 20, 20);
-    //Høyre øye
+    //Right eye
     drawingboard.fillOval(140, 80, 20, 20);
-    //Munn
+    //Mouth
     drawingboard.drawArc(40, 90, 160, 110, 0, -180);
   }
 }
