@@ -15,7 +15,7 @@ class PasswordHelper {
   private String removeIllegalPasswordChar(String text) {
     String returnText = "";
     for (int i=0; i<text.length(); i++) {
-      if (Passordtegn.erPassordtegn(text.charAt(i))) {
+      if (PasswordChar.isPasswordChar(text.charAt(i))) {
         returnText = returnText + text.charAt(i);
       }
     }
@@ -34,13 +34,13 @@ class PasswordHelper {
     }
 
     for (int i=0; i<this.password.length(); i++) {
-      if (Passordtegn.erStorBokstav(this.password.charAt(i))) {
+      if (PasswordChar.isUpperLetter(this.password.charAt(i))) {
         capitalLetter = 1;
-    } else if (Passordtegn.erLitenBokstav(this.password.charAt(i))) {
+    } else if (PasswordChar.isLowerLetter(this.password.charAt(i))) {
         regularLetter = 1;
-    } else if (Passordtegn.erSiffer(this.password.charAt(i))) {
+    } else if (PasswordChar.isDigit(this.password.charAt(i))) {
         number = 1;
-    } else if (Passordtegn.erSpesialtegn(this.password.charAt(i))) {
+    } else if (PasswordChar.isSpecialChar(this.password.charAt(i))) {
         specialCharacter = 1;
       }
     }
