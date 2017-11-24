@@ -1,6 +1,5 @@
 /**
   * CardGameTest
-  *
   */
 
 class CardGameTest {
@@ -44,30 +43,3 @@ class CardGameTest {
     System.out.println(cardPile);
   }
 } // CardGameTest
-
-
-/* Kjøring:
-Informasjon om egenskapssettet:
-Minste valør: 3
-Største valør: 4
-Antall valører: 2
-Alle valørene: 3 4
-Antall kort i kortstokk bestemt av egenskapssettet: 8
-En ny bunke med 8 kort:
-spar 3 - spar 4 - kløver 3 - kløver 4 - hjerter 3 - hjerter 4 - ruter 3 - ruter
-4 -
-Bunken etter stokking:
-spar 4 - hjerter 3 - hjerter 4 - kløver 3 - ruter 3 - kløver 4 - ruter 4 - spar
-3 -
-
-Fjerner tre kort fra toppen av bunken, nemlig:
-spar 3
-ruter 4
-kløver 4
-Bunken med 5 kort:
-spar 4 - hjerter 3 - hjerter 4 - kløver 3 - ruter 3 -
-Etter å ha snudd bunken:
-ruter 3 - kløver 3 - hjerter 4 - hjerter 3 - spar 4 -
-Bunken etter ny stokking:
-kløver 3 - spar 4 - hjerter 4 - ruter 3 - hjerter 3 -
-*/
