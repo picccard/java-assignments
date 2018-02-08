@@ -66,7 +66,7 @@ public class Table {
     public int[] tablesReservedBy(String name) {
         int reserved = 0;
         for (String s : this.tables) {
-            if (s == name) {
+            if (s.equals(name)) {
                 reserved++;
             }
         }
