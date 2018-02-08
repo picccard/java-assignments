@@ -6,6 +6,8 @@
 
 */
 import static javax.swing.JOptionPane.*;
+import java.util.Arrays;
+import java.text.MessageFormat;
 public class RestaurantTest {
     public static void main(String[] args) {
         final String[] OPTIONS = {"reserve table", "find table(s)", "clean table", "quit"};
@@ -20,7 +22,7 @@ public class RestaurantTest {
         String numberOfTablesRead = showInputDialog("How many tables is in the restaurant?");
         int numberOfTables = Integer.parseInt(numberOfTablesRead);
         Restaurant restaurant = new Restaurant(resName, estDate, numberOfTables);
-        restaurant.listTables();
+        System.out.println(restaurant.listTables());
 
         int choise = QUIT;
         do {
@@ -33,12 +35,17 @@ public class RestaurantTest {
                     int numberOfTablesToReserve = Integer.parseInt(numberOfTablesToReserveRead);
                     if (restaurant.reserveTable(reserveOn, numberOfTablesToReserve)) {
                         showMessageDialog(null, "Reservation complete!");
+                        break;
                     } else {
                         showMessageDialog(null, "Reservation failed, not enough tables available.");
                         break;
                     }
-                case FIND_TABLE:  // finne alle bordene som er reservert på et bestemt navn
-                    //....les inn navn, og kall metode...
+                case FIND_TABLE:
+                    String reservationName = showInputDialog("Who are the tables reserved on?");
+                    int[] result = restaurant.tablesReservedBy(reservedOn);
+                    String resultString = Arrays.toString(result);
+                    String dialogText = MessageFormat.format("{0} have reserved table(s) {1}.", reservationName, resultString);
+                    showMessageDialog(null, dialogText);
                     break;
                 case CLEAN_TABLE:
                     try {
