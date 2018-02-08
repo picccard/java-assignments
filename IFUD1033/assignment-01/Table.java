@@ -74,7 +74,7 @@ public class Table {
         int[] tablesReserved = new int[reserved];
         reserved = 0;
         for (int i = 0; i < this.tables.length - 1; i++) {
-            if (this.tables[i] == name) {
+            if (this.tables[i].equals(name)) {
                 tablesReserved[reserved] = i;
                 reserved++;
             }
