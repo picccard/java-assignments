@@ -8,13 +8,19 @@
 import static javax.swing.JOptionPane.*;
 import java.util.Arrays;
 import java.text.MessageFormat;
+import java.lang.StringBuilder;
+import java.time.format.DateTimeFormatter;
+import java.time.Period;
+
 public class RestaurantTest {
     public static void main(String[] args) {
-        final String[] OPTIONS = {"reserve table", "find table(s)", "clean table", "quit"};
+        final String[] OPTIONS = {"reserve table", "find table(s)", "clean table", "info", "change name", "quit"};
         final int RESERVE_TABLE = 0;
         final int FIND_TABLE = 1;
         final int CLEAN_TABLE = 2;
-        final int QUIT = 3;
+        final int INFO = 3;
+        final int CHANGE_NAME = 4;
+        final int QUIT = 5;
 
         String resName = showInputDialog("What is the name of the restaurant?");
         String estDate = showInputDialog("What date was it established? (dd-MM-yyyy)");
@@ -26,7 +32,7 @@ public class RestaurantTest {
 
         int choise = QUIT;
         do {
-            choise = showOptionDialog(null, "Action", restaurant.getName(), DEFAULT_OPTION, PLAIN_MESSAGE, null,
+            choise = showOptionDialog(null, "Action", restaurant.getName()+ " since " + restaurant.getEstYear(), DEFAULT_OPTION, PLAIN_MESSAGE, null,
                 OPTIONS, OPTIONS[0]);
             switch (choise) {
                 case RESERVE_TABLE:
@@ -60,19 +66,24 @@ public class RestaurantTest {
                         System.out.println(e);
                     }
                     break;
-
+                case INFO:
+                    DateTimeFormatter f = DateTimeFormatter.ofPattern("dd MMMM yyyy");
+                    Period age = restaurant.getAge();
+                    StringBuilder dialogText = new StringBuilder();
+                    dialogText.append("This restaurant is named " + restaurant.getName() + ".\n");
+                    dialogText.append("And was established ");
+                    dialogText.append(restaurant.getEstDate().format(f) + ".\n\n");
+                    dialogText.append("Current age is:\n");
+                    dialogText.append(MessageFormat.format("{0} years, {1} months, {2} days", age.getYears(), age.getMonths(), age.getDays()));
+                    showMessageDialog(null, dialogText);
+                    break;
+                case CHANGE_NAME:
+                    String newName = showInputDialog("What is the new name?");
+                    restaurant.setName(newName);
+                    showMessageDialog(null, "Restaurant is now called " + restaurant.getName());
+                    break;
             }
             System.out.println(restaurant.listTables());
         } while (choise != QUIT);
-        /*
-        Brukeren skal kunne velge mellom følgende alternativer:
-
-            reserver bord (les inn navn og antall bord)
-            finn hvilke bord en bestemt person har reservert (les inn navn)
-            frigi bord (les inn aktuelle bordnummer)
-            avslutt
-
-        Sørg også for at metodene som finner alderen og endrer restaurantnavnet blir prøvd ut.
-        */
     }
 }
