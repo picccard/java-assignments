@@ -65,16 +65,16 @@ public class Table {
 
     public int[] tablesReservedBy(String name) {
         int reserved = 0;
-        for (String s : this.tables) {
-            if (s.equals(name)) {
+        for (int i = 0; i < this.tables.length; i++) {
+            if (this.tables[i] != null && this.tables[i].equals(name)) {
                 reserved++;
             }
         }
         // Would rather use arrayList, dynamic size
         int[] tablesReserved = new int[reserved];
         reserved = 0;
-        for (int i = 0; i < this.tables.length - 1; i++) {
-            if (this.tables[i].equals(name)) {
+        for (int i = 0; i < this.tables.length; i++) {
+            if (this.tables[i] != null && this.tables[i].equals(name)) {
                 tablesReserved[reserved] = i;
                 reserved++;
             }
