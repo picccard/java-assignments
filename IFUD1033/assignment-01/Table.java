@@ -5,6 +5,7 @@
 	Author:	Eskil Uhlving Larsen
 
 */
+import java.lang.StringBuilder;
 public class Table {
     String[] tables;
 
@@ -91,9 +92,9 @@ public class Table {
     }
 
     public String listTables() {
-        String res = "";
+        StringBuilder res = new StringBuilder();
         for (int i = 0; i < this.tables.length; i++) {
-            res += i + " : " + this.tables[i] + "\n";
+            res.append("table" + i + " : " + this.tables[i] + "\n");
         }
         return res;
     }
