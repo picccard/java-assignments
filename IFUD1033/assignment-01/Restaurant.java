@@ -37,6 +37,10 @@ public class Restaurant {
         this.name = newName;
     }
 
+    public LocalDate getEstDate() {
+        return this.estDate;
+    }
+
     public int getEstYear() {
         return this.estDate.getYear();
     }
