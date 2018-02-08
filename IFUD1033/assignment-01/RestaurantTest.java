@@ -35,17 +35,21 @@ public class RestaurantTest {
                     int numberOfTablesToReserve = Integer.parseInt(numberOfTablesToReserveRead);
                     if (restaurant.reserveTable(reserveOn, numberOfTablesToReserve)) {
                         showMessageDialog(null, "Reservation complete!");
-                        break;
                     } else {
                         showMessageDialog(null, "Reservation failed, not enough tables available.");
-                        break;
                     }
+                    break;
                 case FIND_TABLE:
                     String reservationName = showInputDialog("Who are the tables reserved on?");
-                    int[] result = restaurant.tablesReservedBy(reservedOn);
-                    String resultString = Arrays.toString(result);
-                    String dialogText = MessageFormat.format("{0} have reserved table(s) {1}.", reservationName, resultString);
-                    showMessageDialog(null, dialogText);
+                    int[] result = restaurant.tablesReservedBy(reservationName);
+                    if (result.length > 0) {
+                        String resultString = Arrays.toString(result);
+                        String dialogText = MessageFormat.format("{0} have reserved table(s) {1}.", reservationName, resultString);
+                        showMessageDialog(null, dialogText);
+                    } else {
+                        String dialogText = MessageFormat.format("{0} have no active reservations.", reservationName);
+                        showMessageDialog(null, dialogText);
+                    }
                     break;
                 case CLEAN_TABLE:
                     try {
