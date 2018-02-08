@@ -96,6 +96,6 @@ public class Table {
         for (int i = 0; i < this.tables.length; i++) {
             res.append("table" + i + " : " + this.tables[i] + "\n");
         }
-        return res;
+        return res.toString();
     }
 }
