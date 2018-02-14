@@ -14,6 +14,7 @@ import java.time.Period;
 
 public class RestaurantTest {
     public static void main(String[] args) {
+        // Variables
         final String[] OPTIONS = {"reserve table", "find table(s)", "clean table", "info", "change name", "quit"};
         final int RESERVE_TABLE = 0;
         final int FIND_TABLE = 1;
@@ -22,14 +23,16 @@ public class RestaurantTest {
         final int CHANGE_NAME = 4;
         final int QUIT = 5;
 
+        // Gets name, date, and nr of tables to create a Restaurant object.
         String resName = showInputDialog("What is the name of the restaurant?");
+        // Needs exception-handling, if the format is not right an exception is thrown. is anything below 01-01-1970 allowed?
         String estDate = showInputDialog("What date was it established? (dd-MM-yyyy)");
-        estDate = "11-11-1999"; // Used to skip the date-input when testing.
         String numberOfTablesRead = showInputDialog("How many tables is in the restaurant?");
         int numberOfTables = Integer.parseInt(numberOfTablesRead);
         Restaurant restaurant = new Restaurant(resName, estDate, numberOfTables);
         System.out.println(restaurant.listTables());
 
+        // Loop through menu.
         int choise = QUIT;
         do {
             choise = showOptionDialog(null, "Action", restaurant.getName()+ " since " + restaurant.getEstYear(), DEFAULT_OPTION, PLAIN_MESSAGE, null,
@@ -58,6 +61,7 @@ public class RestaurantTest {
                     }
                     break;
                 case CLEAN_TABLE:
+                    // Should move exeption-handling into the table-class
                     try {
                         String indexToCleanRead = showInputDialog("What table to clean?");
                         int indexToClean = Integer.parseInt(indexToCleanRead);
