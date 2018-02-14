@@ -6,6 +6,7 @@
 
 */
 import java.lang.StringBuilder;
+
 public class Table {
     String[] tables;
 
@@ -13,6 +14,7 @@ public class Table {
         this.tables = new String[numberOfTables];
     }
 
+    // Counts the nr of available tables and returns the nr.
     public int nrOfAvailableTables() {
         int available = 0;
         for (String reservedBy : this.tables) {
@@ -23,6 +25,7 @@ public class Table {
         return available;
     }
 
+    // Counts the nr of reserved tables and returns the nr.
     public int nrOfReservedTables() {
         int reserved = 0;
         for (String reservedBy : this.tables) {
@@ -33,6 +36,7 @@ public class Table {
         return reserved;
     }
 
+    // Reserves a single table on the name given as an argument.
     public boolean reserveTable(String name) {
         if (this.nrOfAvailableTables() >= 1) {
             for (String s : this.tables) {
@@ -45,6 +49,7 @@ public class Table {
         return false;
     }
 
+    // Reserves a set nr of tables for the name given as an argument.
     public boolean reserveTable(String name, int nrOfTables) {
         if (this.nrOfAvailableTables() >= nrOfTables) {
             int nrOfTablesLeft = nrOfTables;
@@ -64,6 +69,8 @@ public class Table {
         return false;
     }
 
+    // Checks what tables are reversed by the name parameter
+    // and returns an array with the table-indexes.
     public int[] tablesReservedBy(String name) {
         int reserved = 0;
         for (int i = 0; i < this.tables.length; i++) {
@@ -71,7 +78,7 @@ public class Table {
                 reserved++;
             }
         }
-        // Would rather use arrayList, dynamic size
+        // Would rather use arrayList, dynamic size (without having to loop through twice)
         int[] tablesReserved = new int[reserved];
         reserved = 0;
         for (int i = 0; i < this.tables.length; i++) {
@@ -83,6 +90,7 @@ public class Table {
         return tablesReserved;
     }
 
+    // Sets the table at tableIndex-parameter back to null.
     public boolean cleanTable(int tableIndex) {
         if (this.tables[tableIndex] != null) {
             this.tables[tableIndex] = null;
@@ -91,6 +99,7 @@ public class Table {
         return false;
     }
 
+    // Logs out table, index and if reserved.
     public String listTables() {
         StringBuilder res = new StringBuilder();
         for (int i = 0; i < this.tables.length; i++) {
