@@ -8,47 +8,40 @@
 
 import java.text.MessageFormat;
 import java.util.Arrays;
+import java.util.ArrayList;
 
 public class AssignmentOverview {
-    private Student[] students;
+    ArrayList<Student> students;
     private int countStud;
 
     // Constructor
     public AssignmentOverview() {
-        this.students = new Student[5];
+        this.students = new ArrayList<Student>();
         this.countStud = 0;
     }
 
     // Method to register a new student. Also increases the countStud variable.
     public boolean regNewStudent(String name) {
-        for (int i = 0; i < this.countStud; i++) {
-            if (this.students[i].getName().equals(name)) {
+        for (Student stud : this.students) {
+            if (stud.getName().equals(name)) {
                 return false;
             }
         }
-        if (countStud >= this.students.length) {
-            //Expand the studentArray
-            Student[] newStudArr = new Student[students.length + 5];
-            for (int i = 0; i < students.length; i++) {
-                newStudArr[i] = students[i];
-            }
-            students = newStudArr;
-        }
-        students[countStud] = new Student(name);
+        students.add(new Student(name));
         countStud++;
         return true;
     }
 
     // Method to get the nr of students.
     public int findNrOfStud() {
-        return countStud;
+        return this.students.size();
     }
 
     // Tries to look up how many acceptAssignments the student got.
     public int findNrOfAssignments(String name) {
-        for (int i = 0; i < this.countStud; i++) {
-            if (this.students[i].getName().equals(name)) {
-                return this.students[i].getCountAssignments();
+        for (Student stud : this.students) {
+            if (stud.getName().equals(name)) {
+                return stud.getCountAssignments();
             }
         }
         return -1;
@@ -56,9 +49,9 @@ public class AssignmentOverview {
 
     // Increases the nr of acceptAssignments for a specific student.
     public boolean acceptAssignments(String name, int increase) {
-        for (int i = 0; i < this.countStud; i++) {
-            if (this.students[i].getName().equals(name)) {
-                this.students[i].acceptAssignments(increase);
+        for (Student stud : students) {
+            if (stud.getName().equals(name)) {
+                stud.acceptAssignments(increase);
                 return true;
             }
         }
@@ -67,19 +60,19 @@ public class AssignmentOverview {
 
     // Returns an array with the names of all the students.
     public String[] findAllStudentNames() {
-        String[] names = new String[countStud];
-        for (int i = 0; i < this.countStud; i++) {
-            names[i] = students[i].getName();
+        ArrayList<String> names = new ArrayList<String>();
+        for (Student stud : this.students) {
+            names.add(stud.getName());
         }
-        return names;
+        return names.toArray(new String[names.size()]);
     }
 
     // toString
-    // Format - {index}: {student-name}, assignments {NrOfAssignments}
+    // Format - {index+1}: {student-name}, assignments {NrOfAssignments}
     public String toString() {
         StringBuilder result = new StringBuilder();
-        for (int i = 0; i < this.countStud; i++) {
-            result.append(MessageFormat.format("{0}: {1}, assignments: {2}\n", (i+1), students[i].getName(), students[i].getCountAssignments()));
+        for (Student stud : this.students) {
+            result.append(MessageFormat.format("{0}: {1}, assignments: {2}\n", this.students.indexOf(stud) + 1, stud.getName(), stud.getCountAssignments()));
         }
         return result.toString();
     }
