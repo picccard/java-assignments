@@ -1,4 +1,11 @@
 /**
+
+	Title:         Kunde.java
+	Date:          28.02.2018
+	Translator:    Eskil Uhlving Larsen
+
+*/
+/**
  * Kunde.java  E.L. 2010-01-16
  * Inneholder kundedata.
  */

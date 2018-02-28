@@ -1,3 +1,10 @@
+/**
+
+	Title:         Reservasjon.java
+	Date:          28.02.2018
+	Translator:    Eskil Uhlving Larsen
+
+*/
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
