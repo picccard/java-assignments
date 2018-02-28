@@ -1,8 +1,8 @@
 /**
 
-	Title:	Oppgave1.java
-	Date:	28.02.2018
-	Translator:	Eskil Uhlving Larsen
+	Title:	    Oppgave1.java
+	Date:	      28.02.2018
+	Translator: Eskil Uhlving Larsen
 
 */
 
@@ -10,18 +10,14 @@ import static javax.swing.JOptionPane.*;
 
 /**
  *
- * Program som kan brukes til å prøve ut metodene laget i øving 1.
+ * Program to test the methods in AssignmentOverview.
  *
- * Om det er vanskelig å lese, kan det kanskje være på sin plass å repetere litt:
- *
- * Brukergrensesnittet er lagt til en egen klasse, se kapittel 6.4, side 193.
- * For øvrig er et menystyrt program vist i kapittel 9.6, side 304.
  */
 
 class ClientUI {
   public final String NEW_STUDENT = "New student";
   public final String QUIT = "Quit";
-  private String[] OPTIONS = {NEW_STUDENT, QUIT};  // første gang, ingen studenter registrert
+  private String[] OPTIONS = {NEW_STUDENT, QUIT};  // the first time, no students exists
 
   private AssignmentOverview overview;
   public ClientUI(AssignmentOverview overview) {
@@ -30,9 +26,9 @@ class ClientUI {
 
   /**
    *
-   * Metoden leser inn valget som en streng, og returnerer den.
-   * Valget skal være argument til metoden utførValgtOppgave().
-   * Hvis programmet skal quitted, returneres null.
+   * The method reads the choise as a string and returns it.
+   * The choise is gonna be an argument to the doTask()-method.
+   * If the program shall be terminated, null is returned.
    */
   public String readChoise() {
     int countStud = overview.findNrOfStud();
@@ -46,7 +42,7 @@ class ClientUI {
 
   /**
    *
-   * Metode som sørger for at ønsket valg blir utført.
+   * Method executing the choice/task..
    */
   public void doTask(String task) {
     if (task != null && !task.equals(QUIT)) {
@@ -60,14 +56,14 @@ class ClientUI {
 
   /**
    *
-   * Metoden registrere ny student.
-   * Hvis student med dette navnet allerede eksisterer, skjer ingen registrering.
-   * Resultatet av operasjonen skrives ut til brukeren.
+   * Method registers a new student. .
+   * This the student-name alsready exists, nothing happens.
+   * The result if the operation is shown to the user.
    */
   private void regNewStudent() {
     String nameOfNewStud = null;
     do {
-      nameOfNewStud = showInputDialog("Oppgi navn: ");
+      nameOfNewStud = showInputDialog("Enter name: ");
     } while (nameOfNewStud == null);
 
     nameOfNewStud = nameOfNewStud.trim();
@@ -88,22 +84,22 @@ class ClientUI {
 
     /**
      *
-     * Metoden registrerer oppgaver for en navngitt student.
-     * Brukerinput kontrolleres ved at det må kunne tolkes som et tall.
-     * Registreringsmetoden (i klassen Student) kan kaste unntaksobjekt IllegalArgumentException.
-     * Dette fanges også opp. I begge tilfeller må brukeren gjenta inntasting inntil ok data.
-     * Endelig skrives det ut en melding om antall oppgaver studenten nå har registrert.
+     * Method increases the number of acceptAssignments for the named student.
+     * Userinput interpreted as a number.
+     * The redistrationmethod(in the Student class) can throw an IllegalArgumentException.
+     * This is caught.
+     * At the end it's shown to the user, how many acceptAssignments the student got.
      */
     private void acceptAssignments(String studName) {
       String msg = "Number of assignments to accept " + studName +": ";
       int countToBeAccepted = 0;
       boolean registered = false;
-      do { // gjentar inntil registrering aksepteres av objektet overview
+      do { // repeats untill gjentar inntil registrering aksepteres av objektet overview
         try {
           countToBeAccepted = readInt(msg);
-          overview.acceptAssignments(studName, countToBeAccepted);  // kan ikke returnere false, pga navn alltid gyldig
-          registered = true; // kommer hit bare dersom exception ikke blir kastet
-        } catch (IllegalArgumentException e) {  // kommer hit hvis studenter får negativt antall oppgaver
+          overview.acceptAssignments(studName, countToBeAccepted);  // cant return false, name always correct.
+          registered = true; // only gets here if none exception-thrown
+      } catch (IllegalArgumentException e) {  // gets here is nr of assignments is negative.
           msg = "You wrote " + countToBeAccepted + ". \nDidn't accept raise-count for " + studName + ". Try again: ";
         }
       } while (!registered);
@@ -112,11 +108,11 @@ class ClientUI {
       showMessageDialog(null, msg);
     }
 
-    /* Hjelpemetode som går i løkke inntil brukeren skriver et heltall. */
+    /* Helping method that loops untill user inputs an integer. */
     private int readInt(String msg) {
       int number = 0;
       boolean ok = false;
-      do {  // gjentar inntil brukerinput kan tolkes som tall
+      do {  // loops until userinput is an integer
         String numberRead = showInputDialog(msg);
         try {
           number = Integer.parseInt(numberRead);
@@ -131,7 +127,7 @@ class ClientUI {
 
 
   /**
-   * Hovedprogrammet. Går i løkke og lar brukeren gjøre valg.
+   * Main. Loops and lets user make a choise.
    */
   class Client {
     public static void main(String[] args) {
