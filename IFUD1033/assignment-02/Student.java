@@ -1,3 +1,11 @@
+/**
+
+	Title:	Student.java
+	Date:	13.02.2018
+	Author:	Eskil Uhlving Larsen
+
+*/
+
 import java.text.MessageFormat;
 
 public class Student {
@@ -35,11 +43,11 @@ public class Student {
         return out;
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         Student eskil = new Student("eskil");
         System.out.println(eskil.toString());
         eskil.acceptAssignments(1);
         System.out.println(eskil.toString());
         
-    }
+    }*/
 }
