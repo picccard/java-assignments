@@ -1,6 +1,6 @@
 /**
 
-	Title:	OppgaveOversikt.java
+	Title:	AssignmentOverview.java
 	Date:	28.02.2018
 	Author:	Eskil Uhlving Larsen
 
@@ -9,11 +9,11 @@
 import java.text.MessageFormat;
 import java.util.Arrays;
 
-public class OppgaveOversikt {
+public class AssignmentOverview {
     private Student[] students;
     private int countStud;
 
-    public OppgaveOversikt() {
+    public AssignmentOverview() {
         this.students = new Student[5];
         this.countStud = 0;
     }

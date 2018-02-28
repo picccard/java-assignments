@@ -23,9 +23,9 @@ class GodkjenningBGS {
   public final String AVSLUTT = "Avslutt";
   private String[] muligeValg = {NY_STUDENT, AVSLUTT};  // første gang, ingen studenter registrert
 
-  private OppgaveOversikt oversikt;
-  public GodkjenningBGS(OppgaveOversikt oversikt) {
-    this.oversikt = oversikt;
+  private AssignmentOverview overview;
+  public GodkjenningBGS(AssignmentOverview overview) {
+    this.overview = overview;
   }
 
   /**
@@ -35,7 +35,7 @@ class GodkjenningBGS {
    * Hvis programmet skal avsluttes, returneres null.
    */
   public String lesValg() {
-    int antStud = oversikt.finnAntStud();
+    int antStud = overview.finnAntStud();
     String valg = (String) showInputDialog(null, "Velg fra listen, " + antStud + " studenter:",  "Godkjente oppgaver",
              DEFAULT_OPTION, null, muligeValg, muligeValg[0]);
     if (AVSLUTT.equals(valg)) {
@@ -71,9 +71,9 @@ class GodkjenningBGS {
     } while (navnNyStud == null);
 
     navnNyStud = navnNyStud.trim();
-    if (oversikt.regNyStudent(navnNyStud)) {
+    if (overview.regNyStudent(navnNyStud)) {
       showMessageDialog(null, navnNyStud + " er registrert.");
-      String[] alleNavn = oversikt.finnAlleNavn();
+      String[] alleNavn = overview.finnAlleNavn();
       String[] nyMuligeValg = new String[alleNavn.length + 2];
       for (int i = 0; i < alleNavn.length; i++) {
         nyMuligeValg[i] = alleNavn[i];
@@ -98,17 +98,17 @@ class GodkjenningBGS {
       String melding = "Oppgi antall nye oppgaver som skal godkjennes for " + studNavn +": ";
       int antOppgØkning = 0;
       boolean registrert = false;
-      do { // gjentar inntil registrering aksepteres av objektet oversikt
+      do { // gjentar inntil registrering aksepteres av objektet overview
         try {
           antOppgØkning = lesHeltall(melding);
-          oversikt.økAntOppg(studNavn, antOppgØkning);  // kan ikke returnere false, pga navn alltid gyldig
+          overview.økAntOppg(studNavn, antOppgØkning);  // kan ikke returnere false, pga navn alltid gyldig
           registrert = true; // kommer hit bare dersom exception ikke blir kastet
         } catch (IllegalArgumentException e) {  // kommer hit hvis studenter får negativt antall oppgaver
           melding = "Du skrev " + antOppgØkning + ". \nIkke godkjent økning for " + studNavn + ". Prøv igjen: ";
         }
       } while (!registrert);
 
-      melding = "Totalt antall oppgaver registrert på " + studNavn + " er " + oversikt.finnAntOppgaver(studNavn) + ".";
+      melding = "Totalt antall oppgaver registrert på " + studNavn + " er " + overview.finnAntOppgaver(studNavn) + ".";
       showMessageDialog(null, melding);
     }
 
@@ -136,8 +136,8 @@ class GodkjenningBGS {
   class Oppgave1 {
     public static void main(String[] args) {
 
-    OppgaveOversikt oversikt = new OppgaveOversikt();
-    GodkjenningBGS bgs = new GodkjenningBGS(oversikt);
+    AssignmentOverview overview = new AssignmentOverview();
+    GodkjenningBGS bgs = new GodkjenningBGS(overview);
 
     String valg = bgs.lesValg();
     while (valg != null) {
@@ -147,6 +147,6 @@ class GodkjenningBGS {
 
     /* Prøver toString() */
     System.out.println("\nHer kommer informasjon om alle studentene: ");
-    System.out.println(oversikt);
+    System.out.println(overview);
   }
 }
