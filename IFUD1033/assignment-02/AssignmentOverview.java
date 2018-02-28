@@ -13,22 +13,19 @@ public class AssignmentOverview {
     private Student[] students;
     private int countStud;
 
+    // Constructor
     public AssignmentOverview() {
         this.students = new Student[5];
         this.countStud = 0;
     }
 
+    // Method to register a new student. Also increases the countStud variable.
     public boolean regNewStudent(String name) {
         for (int i = 0; i < this.countStud; i++) {
             if (this.students[i].getName().equals(name)) {
                 return false;
             }
         }
-        /*for (Student stud : students) {
-            if (stud.getName().equals(name)) {
-                return false;
-            }
-        }*/
         if (countStud >= this.students.length) {
             //Expand the studentArray
             Student[] newStudArr = new Student[students.length + 5];
@@ -42,10 +39,12 @@ public class AssignmentOverview {
         return true;
     }
 
+    // Method to get the nr of students.
     public int findNrOfStud() {
         return countStud;
     }
 
+    // Tries to look up how many acceptAssignments the student got.
     public int findNrOfAssignments(String name) {
         for (int i = 0; i < this.countStud; i++) {
             if (this.students[i].getName().equals(name)) {
@@ -55,6 +54,7 @@ public class AssignmentOverview {
         return -1;
     }
 
+    // Increases the nr of acceptAssignments for a specific student.
     public boolean acceptAssignments(String name, int increase) {
         for (int i = 0; i < this.countStud; i++) {
             if (this.students[i].getName().equals(name)) {
@@ -65,6 +65,7 @@ public class AssignmentOverview {
         return false;
     }
 
+    // Returns an array with the names of all the students.
     public String[] findAllStudentNames() {
         String[] names = new String[countStud];
         for (int i = 0; i < this.countStud; i++) {
@@ -73,6 +74,8 @@ public class AssignmentOverview {
         return names;
     }
 
+    // toString
+    // Format - {index}: {student-name}, assignments {NrOfAssignments}
     public String toString() {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < this.countStud; i++) {
@@ -89,10 +92,10 @@ public class AssignmentOverview {
         oo.regNewStudent("magnus");
 
         System.out.println("Testing findAllStudentNames(): " + Arrays.toString(oo.findAllStudentNames()));
-        
+
         System.out.println("\nTesting toString()\n" + oo.toString());
-        
-        
+
+
         System.out.println("Testing acceptAssignments(\"none\", 1): " + oo.acceptAssignments("none", 1));
         System.out.println("Testing acceptAssignments(\"adis\", 4): " + oo.acceptAssignments("adis", 4));
         System.out.println("Testing acceptAssignments(\"eskil\", 3): " + oo.acceptAssignments("eskil", 3));
