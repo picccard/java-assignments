@@ -1,19 +1,27 @@
+/**
+
+	Title:	Oppgave1.java
+	Date:	28.02.2018
+	Translator:	Eskil Uhlving Larsen
+
+*/
+
 import static javax.swing.JOptionPane.*;
 
 /**
  *
- * Program som kan brukes til å prøve ut metodene laget i øving 1.
+ * Program som kan brukes til Ã¥ prÃ¸ve ut metodene laget i Ã¸ving 1.
  *
- * Om det er vanskelig å lese, kan det kanskje være på sin plass å repetere litt:
+ * Om det er vanskelig Ã¥ lese, kan det kanskje vÃ¦re pÃ¥ sin plass Ã¥ repetere litt:
  *
  * Brukergrensesnittet er lagt til en egen klasse, se kapittel 6.4, side 193.
- * For øvrig er et menystyrt program vist i kapittel 9.6, side 304.
+ * For Ã¸vrig er et menystyrt program vist i kapittel 9.6, side 304.
  */
 
 class GodkjenningBGS {
   public final String NY_STUDENT = "Ny student";
   public final String AVSLUTT = "Avslutt";
-  private String[] muligeValg = {NY_STUDENT, AVSLUTT};  // første gang, ingen studenter registrert
+  private String[] muligeValg = {NY_STUDENT, AVSLUTT};  // fÃ¸rste gang, ingen studenter registrert
 
   private OppgaveOversikt oversikt;
   public GodkjenningBGS(OppgaveOversikt oversikt) {
@@ -23,7 +31,7 @@ class GodkjenningBGS {
   /**
    *
    * Metoden leser inn valget som en streng, og returnerer den.
-   * Valget skal være argument til metoden utførValgtOppgave().
+   * Valget skal vÃ¦re argument til metoden utfÃ¸rValgtOppgave().
    * Hvis programmet skal avsluttes, returneres null.
    */
   public String lesValg() {
@@ -38,9 +46,9 @@ class GodkjenningBGS {
 
   /**
    *
-   * Metode som sørger for at ønsket valg blir utført.
+   * Metode som sÃ¸rger for at Ã¸nsket valg blir utfÃ¸rt.
    */
-  public void utførValgtOppgave(String valg) {
+  public void utfÃ¸rValgtOppgave(String valg) {
     if (valg != null && !valg.equals(AVSLUTT)) {
       if (valg.equals(NY_STUDENT)) {
         registrerNyStudent();
@@ -81,30 +89,30 @@ class GodkjenningBGS {
     /**
      *
      * Metoden registrerer oppgaver for en navngitt student.
-     * Brukerinput kontrolleres ved at det må kunne tolkes som et tall.
+     * Brukerinput kontrolleres ved at det mÃ¥ kunne tolkes som et tall.
      * Registreringsmetoden (i klassen Student) kan kaste unntaksobjekt IllegalArgumentException.
-     * Dette fanges også opp. I begge tilfeller må brukeren gjenta inntasting inntil ok data.
-     * Endelig skrives det ut en melding om antall oppgaver studenten nå har registrert.
+     * Dette fanges ogsÃ¥ opp. I begge tilfeller mÃ¥ brukeren gjenta inntasting inntil ok data.
+     * Endelig skrives det ut en melding om antall oppgaver studenten nÃ¥ har registrert.
      */
     private void registrerOppgaver(String studNavn) {
       String melding = "Oppgi antall nye oppgaver som skal godkjennes for " + studNavn +": ";
-      int antOppgØkning = 0;
+      int antOppgÃ˜kning = 0;
       boolean registrert = false;
       do { // gjentar inntil registrering aksepteres av objektet oversikt
         try {
-          antOppgØkning = lesHeltall(melding);
-          oversikt.økAntOppg(studNavn, antOppgØkning);  // kan ikke returnere false, pga navn alltid gyldig
+          antOppgÃ˜kning = lesHeltall(melding);
+          oversikt.Ã¸kAntOppg(studNavn, antOppgÃ˜kning);  // kan ikke returnere false, pga navn alltid gyldig
           registrert = true; // kommer hit bare dersom exception ikke blir kastet
-        } catch (IllegalArgumentException e) {  // kommer hit hvis studenter får negativt antall oppgaver
-          melding = "Du skrev " + antOppgØkning + ". \nIkke godkjent økning for " + studNavn + ". Prøv igjen: ";
+        } catch (IllegalArgumentException e) {  // kommer hit hvis studenter fÃ¥r negativt antall oppgaver
+          melding = "Du skrev " + antOppgÃ˜kning + ". \nIkke godkjent Ã¸kning for " + studNavn + ". PrÃ¸v igjen: ";
         }
       } while (!registrert);
 
-      melding = "Totalt antall oppgaver registrert på " + studNavn + " er " + oversikt.finnAntOppgaver(studNavn) + ".";
+      melding = "Totalt antall oppgaver registrert pÃ¥ " + studNavn + " er " + oversikt.finnAntOppgaver(studNavn) + ".";
       showMessageDialog(null, melding);
     }
 
-    /* Hjelpemetode som går i løkke inntil brukeren skriver et heltall. */
+    /* Hjelpemetode som gÃ¥r i lÃ¸kke inntil brukeren skriver et heltall. */
     private int lesHeltall(String melding) {
       int tall = 0;
       boolean ok = false;
@@ -114,7 +122,7 @@ class GodkjenningBGS {
           tall = Integer.parseInt(tallLest);
           ok = true;
         } catch (Exception e) {
-          showMessageDialog(null, "Kan ikke tolke det du skrev som tall. Prøv igjen. ");
+          showMessageDialog(null, "Kan ikke tolke det du skrev som tall. PrÃ¸v igjen. ");
         }
       } while (!ok);
       return tall;
@@ -123,7 +131,7 @@ class GodkjenningBGS {
 
 
   /**
-   * Hovedprogrammet. Går i løkke og lar brukeren gjøre valg.
+   * Hovedprogrammet. GÃ¥r i lÃ¸kke og lar brukeren gjÃ¸re valg.
    */
   class Oppgave1 {
     public static void main(String[] args) {
@@ -133,11 +141,11 @@ class GodkjenningBGS {
 
     String valg = bgs.lesValg();
     while (valg != null) {
-      bgs.utførValgtOppgave(valg);
+      bgs.utfÃ¸rValgtOppgave(valg);
       valg = bgs.lesValg();
     }
 
-    /* Prøver toString() */
+    /* PrÃ¸ver toString() */
     System.out.println("\nHer kommer informasjon om alle studentene: ");
     System.out.println(oversikt);
   }
