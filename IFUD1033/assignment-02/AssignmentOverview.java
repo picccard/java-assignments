@@ -18,7 +18,7 @@ public class AssignmentOverview {
         this.countStud = 0;
     }
 
-    public boolean regNyStudent(String name) {
+    public boolean regNewStudent(String name) {
         for (int i = 0; i < this.countStud; i++) {
             if (this.students[i].getName().equals(name)) {
                 return false;
@@ -42,11 +42,11 @@ public class AssignmentOverview {
         return true;
     }
 
-    public int finnAntStud() {
+    public int findNrOfStud() {
         return countStud;
     }
 
-    public int finnAntOppgaver(String name) {
+    public int findNrOfAssignments(String name) {
         for (int i = 0; i < this.countStud; i++) {
             if (this.students[i].getName().equals(name)) {
                 return this.students[i].getCountAssignments();
@@ -55,7 +55,7 @@ public class AssignmentOverview {
         return -1;
     }
 
-    public boolean økAntOppg(String name, int increase) {
+    public boolean acceptAssignments(String name, int increase) {
         for (int i = 0; i < this.countStud; i++) {
             if (this.students[i].getName().equals(name)) {
                 this.students[i].acceptAssignments(increase);
@@ -65,7 +65,7 @@ public class AssignmentOverview {
         return false;
     }
 
-    public String[] finnAlleNavn() {
+    public String[] findAllStudentNames() {
         String[] names = new String[countStud];
         for (int i = 0; i < this.countStud; i++) {
             names[i] = students[i].getName();
@@ -83,23 +83,23 @@ public class AssignmentOverview {
 
     /*public static void main(String[] args) {
         OppgaveOversikt oo = new OppgaveOversikt();
-        oo.regNyStudent("ole");
-        oo.regNyStudent("adis");
-        oo.regNyStudent("eskil");
-        oo.regNyStudent("magnus");
+        oo.regNewStudent("ole");
+        oo.regNewStudent("adis");
+        oo.regNewStudent("eskil");
+        oo.regNewStudent("magnus");
 
-        System.out.println("Testing findAllStudentNames(): " + Arrays.toString(oo.finnAlleNavn()));
+        System.out.println("Testing findAllStudentNames(): " + Arrays.toString(oo.findAllStudentNames()));
         
         System.out.println("\nTesting toString()\n" + oo.toString());
         
         
-        System.out.println("Testing økAntOppg(\"none\", 1): " + oo.økAntOppg("none", 1));
-        System.out.println("Testing økAntOppg(\"adis\", 4): " + oo.økAntOppg("adis", 4));
-        System.out.println("Testing økAntOppg(\"eskil\", 3): " + oo.økAntOppg("eskil", 3));
+        System.out.println("Testing acceptAssignments(\"none\", 1): " + oo.acceptAssignments("none", 1));
+        System.out.println("Testing acceptAssignments(\"adis\", 4): " + oo.acceptAssignments("adis", 4));
+        System.out.println("Testing acceptAssignments(\"eskil\", 3): " + oo.acceptAssignments("eskil", 3));
         System.out.println("\nTesting toString()\n" + oo.toString());
 
-        System.out.println("Testing findNrOfStud(): " + oo.finnAntStud());
-        System.out.println("Testing findNrOfAssignments(\"adis\"): " + oo.finnAntOppgaver("adis"));
-        System.out.println("Testing findNrOfAssignments(\"none\"): " + oo.finnAntOppgaver("none"));
+        System.out.println("Testing findNrOfStud(): " + oo.findNrOfStud());
+        System.out.println("Testing findNrOfAssignments(\"adis\"): " + oo.findNrOfAssignments("adis"));
+        System.out.println("Testing findNrOfAssignments(\"none\"): " + oo.findNrOfAssignments("none"));
     }*/
 }
