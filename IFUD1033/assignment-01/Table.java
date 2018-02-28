@@ -6,9 +6,11 @@
 
 */
 import java.lang.StringBuilder;
+import java.util.ArrayList;
 
 public class Table {
     String[] tables;
+
 
     public Table(int numberOfTables) {
         this.tables = new String[numberOfTables];
@@ -72,6 +74,7 @@ public class Table {
     // Checks what tables are reversed by the name parameter
     // and returns an array with the table-indexes.
     public int[] tablesReservedBy(String name) {
+        /* Old method, without ArrayList
         int reserved = 0;
         for (int i = 0; i < this.tables.length; i++) {
             if (this.tables[i] != null && this.tables[i].equals(name)) {
@@ -88,6 +91,20 @@ public class Table {
             }
         }
         return tablesReserved;
+        */
+        // Method with ArrayList
+        ArrayList<Integer> reservedTables = new ArrayList<Integer>();
+        for (int i = 0; i < this.tables.length; i++) {
+            if (this.tables[i] != null && this.tables[i].equals(name)) {
+                reservedTables.add(Integer.valueOf(i));
+            }
+        }
+        int[] result = new int[reservedTables.size()];
+        for(int i = 0; i < result.length; i++) {
+            result[i] = reservedTables.get(i);
+        }
+        return result;
+
     }
 
     // Sets the table at tableIndex-parameter back to null.
