@@ -1,8 +1,9 @@
 /**
 
 	Title:	    Oppgave1.java
-	Date:	      28.02.2018
-	Translator: Eskil Uhlving Larsen
+	Date:	    28.02.2018
+    Author:     Else Lervik og Stiftelsen TISIP
+    Translator: Eskil Uhlving Larsen
 
 */
 
