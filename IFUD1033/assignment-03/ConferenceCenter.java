@@ -7,6 +7,8 @@
 */
 import java.util.ArrayList;
 import java.time.LocalDateTime;
+import java.text.MessageFormat;
+import java.lang.StringBuilder;
 
 public class ConferenceCenter {
     private ArrayList<Room> rooms;
@@ -82,10 +84,74 @@ public class ConferenceCenter {
     }
 
     public String toString() {
-        return "";
+        StringBuilder out = new StringBuilder();
+        out.append(MessageFormat.format("ConferenceCenter have {0} rooms: \n", this.rooms.size()));
+        for (Room room : this.rooms) {
+            out.append(room.toString());
+        }
+        return out.toString();
     }
 
     public static void main(String[] args) {
+        // Test all methods
+
+        // Create ConferenceCenter-object
+        ConferenceCenter cc = new ConferenceCenter();
+        // adding rooms to cc, all should return true
+        // except room 202, it's added twice and should return false the 2nd time.
+        System.out.println(cc.regNewRoom(201, 4));
+        System.out.println(cc.regNewRoom(202, 2));
+        System.out.println(cc.regNewRoom(204, 8));
+        System.out.println(cc.regNewRoom(202, 6));
+        System.out.println(cc.regNewRoom(301, 4));
+        // Printing the ConferenceCenter, should call toString
+        System.out.println(cc);
+        System.out.println("ConferenceCenter room-count: " + cc.getRoomCount());
+        // Normal reservation
+        System.out.println(cc.makeReservation(
+            LocalDateTime.of(2003, 2, 1, 10, 0),
+            LocalDateTime.of(2003, 2, 1, 11, 0),
+            6,
+            "Bob Ross", "91111111"
+        ));
+        // Overlapping reservaion, also with 6 people, should return false
+        System.out.println(cc.makeReservation(
+            LocalDateTime.of(2003, 2, 1, 10, 0),
+            LocalDateTime.of(2003, 2, 1, 11, 0),
+            6,
+            "Bob Ross", "91111111"
+        ));
+        // Same reservation, later time
+        System.out.println(cc.makeReservation(
+            LocalDateTime.of(2003, 2, 1, 11, 0),
+            LocalDateTime.of(2003, 2, 1, 12, 0),
+            6,
+            "Bob Ross", "91111111"
+        ));
+        System.out.println(cc.makeReservation(
+            LocalDateTime.of(2003, 2, 1, 11, 0),
+            LocalDateTime.of(2003, 2, 1, 12, 0),
+            4,
+            "Alice Ross", "92222222"
+        ));
+        System.out.println(cc.makeReservation(
+            LocalDateTime.of(2003, 2, 1, 11, 0),
+            LocalDateTime.of(2003, 2, 1, 12, 0),
+            4,
+            "Alice Ross", "92222222"
+        ));
+        System.out.println(cc);
+        System.out.println("--------------------------------------------");
+        System.out.println("Trying to find room with index 3:");
+        System.out.println(cc.findRoomFromIndex(3));
+        System.out.println("Trying to find roomNR 202:");
+        System.out.println(cc.findRoomFromRoomNR(202));
 
     }
+
+    // makeReservation should be changed to avoid this...
+    // we have two rooms with the size of 8 and 6, in that order.
+    // two teams of 6 and 8 make one reservation each, overlapping, in that order.
+    // Currently the team of 6 will reserve the room for 8 people making the
+    // team unable to make a successfully reservation.
 }
