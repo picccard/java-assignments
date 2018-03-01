@@ -58,7 +58,7 @@ class ClientUI {
   /**
    *
    * Method registers a new student. .
-   * This the student-name alsready exists, nothing happens.
+   * This the student-name already exists, nothing happens.
    * The result if the operation is shown to the user.
    */
   private void regNewStudent() {
