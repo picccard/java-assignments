@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 
 public class Room {
     // roomNR is an uniqe identifier
-    // size is the number of peaople that can fit in the room.
+    // size is the number of people that can fit in the room.
     private final int roomNR;
     private final int size;
     private ArrayList<Reservasjon> reservations;
