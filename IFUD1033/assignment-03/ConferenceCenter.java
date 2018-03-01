@@ -26,14 +26,14 @@ public class ConferenceCenter {
     }
 
     public boolean regNewRoom(int roomNR, int size) {
+        if (size < 1 || size > 100) { // Rooms must have a size between 1 and 100
+            //return false;
+            throw new IllegalArgumentException("size is not valid");
+        }
         for (Room room : this.rooms) {
             if (room.getRoomNR() == roomNR) {
-                // throw new IllegalArgumentException("RoomNR already exist")
-                return false;
-            }
-            if (size < 1 || size > 100) { // Rooms must have a size between 1 and 100
-                return false;
-                // throw new IllegalArgumentException("size is not valid")
+                throw new IllegalArgumentException("Room number already exist");
+                //return false;
             }
         }
 
