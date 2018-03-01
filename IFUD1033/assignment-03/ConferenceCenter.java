@@ -28,7 +28,7 @@ public class ConferenceCenter {
     public boolean regNewRoom(int roomNR, int size) {
         if (size < 1 || size > 100) { // Rooms must have a size between 1 and 100
             //return false;
-            throw new IllegalArgumentException("size is not valid");
+            throw new IllegalArgumentException("Size is not valid\nSize have value between 1 and 100");
         }
         for (Room room : this.rooms) {
             if (room.getRoomNR() == roomNR) {
@@ -67,6 +67,10 @@ public class ConferenceCenter {
         return this.rooms.size();
     }
 
+    public ArrayList<Room> getRooms() {
+        return this.rooms;
+    }
+
     public Room findRoomFromIndex(int index) {
         return this.rooms.get(index);
         // this might throw IndexOutOfBoundsException
@@ -102,7 +106,7 @@ public class ConferenceCenter {
         System.out.println(cc.regNewRoom(201, 4));
         System.out.println(cc.regNewRoom(202, 2));
         System.out.println(cc.regNewRoom(204, 8));
-        System.out.println(cc.regNewRoom(202, 6));
+        //System.out.println(cc.regNewRoom(202, 6));
         System.out.println(cc.regNewRoom(301, 4));
         // Printing the ConferenceCenter, should call toString
         System.out.println(cc);
@@ -144,6 +148,8 @@ public class ConferenceCenter {
         System.out.println("--------------------------------------------");
         System.out.println("Trying to find room with index 3:");
         System.out.println(cc.findRoomFromIndex(3));
+        //System.out.println("Trying to find room with index 9:");
+        //System.out.println(cc.findRoomFromIndex(9));
         System.out.println("Trying to find roomNR 202:");
         System.out.println(cc.findRoomFromRoomNR(202));
 
