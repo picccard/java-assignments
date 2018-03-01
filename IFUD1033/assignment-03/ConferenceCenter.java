@@ -40,7 +40,7 @@ public class ConferenceCenter {
         return this.rooms.add(new Room(roomNR, size));
     }
 
-    public boolean makeReservation(LocalDateTime fromDate, LocalDateTime toDate, int countPersons, Kunde customer) {
+    public boolean makeReservation(LocalDateTime fromDate, LocalDateTime toDate, int countPersons, Customer customer) {
         for (Room room : this.rooms) {
             // Loops through every room
             // If the room is big enough
@@ -59,7 +59,7 @@ public class ConferenceCenter {
     }
 
     public boolean makeReservation(LocalDateTime fromDate, LocalDateTime toDate, int countPersons, String name, String phoneNR) {
-        Kunde customer = new Kunde(name, phoneNR);
+        Customer customer = new Customer(name, phoneNR);
         return this.makeReservation(fromDate, toDate, countPersons, customer);
     }
 

@@ -17,22 +17,22 @@ public class Room {
     // size is the number of people that can fit in the room.
     private final int roomNR;
     private final int size;
-    private ArrayList<Reservasjon> reservations;
+    private ArrayList<Reservation> reservations;
 
     public Room(int roomNR, int size) {
         this.roomNR = roomNR;
         this.size = size;
-        this.reservations = new ArrayList<Reservasjon>();
+        this.reservations = new ArrayList<Reservation>();
     }
 
-    public boolean makeReservation(LocalDateTime fromDate, LocalDateTime toDate, Kunde kunde) {
-        for (Reservasjon res : this.reservations) {
-            if (res.overlapp(fromDate, toDate)) {
+    public boolean makeReservation(LocalDateTime fromDate, LocalDateTime toDate, Customer customer) {
+        for (Reservation res : this.reservations) {
+            if (res.overlap(fromDate, toDate)) {
                 return false;
             }
         }
         // the ArrayList.add methods returns true if successful
-        return this.reservations.add(new Reservasjon(fromDate, toDate, kunde));
+        return this.reservations.add(new Reservation(fromDate, toDate, customer));
     }
 
     public int getSize() {
@@ -46,7 +46,7 @@ public class Room {
     public String toString() {
         StringBuilder out = new StringBuilder();
         out.append(MessageFormat.format("Room {0} (size of {1}) got {2} reservations: \n", this.roomNR, this.size, this.reservations.size()));
-        for (Reservasjon res : this.reservations) {
+        for (Reservation res : this.reservations) {
             out.append(MessageFormat.format("\t{0} - {1}\n", this.reservations.indexOf(res) + 1, res.toString()));
         }
         return out.toString();
@@ -54,8 +54,8 @@ public class Room {
 
     public static void main(String[] args) {
         Room firstRoom = new Room(404, 7);
-        Kunde eskil = new Kunde("Eskil", "46771144");
-        Kunde adis = new Kunde("Adis", "91111111");
+        Customer eskil = new Customer("Eskil", "46771144");
+        Customer adis = new Customer("Adis", "91111111");
 
         // Makes a valid reservation, should return true
         System.out.println(
