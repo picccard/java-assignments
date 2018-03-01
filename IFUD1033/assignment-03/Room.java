@@ -45,9 +45,9 @@ public class Room {
 
     public String toString() {
         StringBuilder out = new StringBuilder();
-        out.append(MessageFormat.format("Room {0} got {1} reservations: \n", this.roomNR, this.reservations.size()));
+        out.append(MessageFormat.format("Room {0} (size of {1}) got {2} reservations: \n", this.roomNR, this.size, this.reservations.size()));
         for (Reservasjon res : this.reservations) {
-            out.append(MessageFormat.format("{0} - {1}\n", this.reservations.indexOf(res) + 1, res.toString()));
+            out.append(MessageFormat.format("\t{0} - {1}\n", this.reservations.indexOf(res) + 1, res.toString()));
         }
         return out.toString();
     }
