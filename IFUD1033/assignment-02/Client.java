@@ -95,7 +95,7 @@ class ClientUI {
       String msg = "Number of assignments to accept " + studName +": ";
       int countToBeAccepted = 0;
       boolean registered = false;
-      do { // repeats untill gjentar inntil registrering aksepteres av objektet overview
+      do { // repeats untill the registration is successful
         try {
           countToBeAccepted = readInt(msg);
           overview.acceptAssignments(studName, countToBeAccepted);  // cant return false, name always correct.
