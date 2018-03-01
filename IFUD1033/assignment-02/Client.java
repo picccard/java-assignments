@@ -1,6 +1,6 @@
 /**
 
-	Title:	    Oppgave1.java
+	Title:	    Client.java (org. Oppgave1.java)
 	Date:	    28.02.2018
     Author:     Else Lervik og Stiftelsen TISIP
     Translator: Eskil Uhlving Larsen
