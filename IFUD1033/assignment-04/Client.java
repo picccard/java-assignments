@@ -60,6 +60,7 @@ public class Client {
             FileInputStream fileInputStream = new FileInputStream(fileName);
             ObjectInputStream inStream = new ObjectInputStream(fileInputStream);
             foundArrayListSubjects = (ArrayList<Subject>) inStream.readObject();
+            inStream.close();
         } catch (IOException e) {
             e.printStackTrace();
             return null;
