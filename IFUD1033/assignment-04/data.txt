@@ -1,0 +1,4 @@
+HiST-LO172D, Programmering i Java,        6, E, C, B
+HiST-LO314D, Prosjektrettet systemarbeid, 6, C
+HiST-LO251M, Teknisk termodynamikk,       6, C, A
+HSH-IT21,    Elektroniske learemiddel,    30, B
