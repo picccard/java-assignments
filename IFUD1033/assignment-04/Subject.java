@@ -1,3 +1,11 @@
+/**
+
+	Title:	    Subject.java
+	Date:	    05.03.2018
+    Author:     Eskil Uhlving Larsen
+
+*/
+
 import java.text.MessageFormat;
 import java.lang.StringBuilder;
 import java.util.Arrays;
@@ -19,6 +27,8 @@ public class Subject implements Serializable {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(MessageFormat.format("Subject Code: {0}\nSubject Name: {1}\nCredits: {2}\nTotal Results: {3} {4}\n", subjectCode, subjectName, credits, results.length, Arrays.toString(results)));
+
+        // Alternative method to add results
         /*for (int i = 0; i < results.length; i++) {
             sb.append(results[i]);
             if (i < results.length-1) {

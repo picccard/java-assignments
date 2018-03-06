@@ -1,3 +1,11 @@
+/**
+
+	Title:	    Client.java
+	Date:	    05.03.2018
+    Author:     Eskil Uhlving Larsen
+
+*/
+
 import java.util.ArrayList;
 import java.io.*;
 
@@ -65,11 +73,17 @@ public class Client {
 
     public static void main(String[] args) {
         Client client = new Client();
+
         ArrayList<Subject> subjects = client.readFile("data.txt");
+        // List out orginal Subjects before serialize
         /*for (Subject s : subjects) {
             System.out.println(s);
         }*/
+
+        // Serialize the ArrayList
         client.serializeArrayList(subjects);
+
+        // DeSerialize and list out every Subject.toString()
         ArrayList<Subject> readSubjects = client.deSerialize("subjects.ser");
         for (Subject s : readSubjects) {
             System.out.println(s);
