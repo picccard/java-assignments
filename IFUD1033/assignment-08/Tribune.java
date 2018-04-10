@@ -102,7 +102,7 @@ class SittingTribune extends Tribune {
 
     public Billett[] buyTickets(int ticketAmount) {
         int[] rowInfo = findAvailableRow();
-        Billett[] retTickets = new Billett[ticketAmount];
+        Billett[] retTickets = new SitteplassBillett[ticketAmount];
         if (rowInfo[1] < ticketAmount) {
             // Not enough seats available in a single row.
             return null;
