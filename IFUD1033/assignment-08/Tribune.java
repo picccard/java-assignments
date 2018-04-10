@@ -1,3 +1,12 @@
+/**
+
+	Title:         Tribune.java
+	Date:          09.04.2018
+    Author:        Eskil Uhlving Larsen
+
+*/
+
+
 abstract class Tribune {
     private final String tribunename;
     private final int capasity;
@@ -27,9 +36,9 @@ abstract class Tribune {
         return findTicketsSoldCount() * price;
     }
 
-    public abstract Billett[] buyTickets(int ticketAmount);
+    public abstract Ticket[] buyTickets(int ticketAmount); // This method gets overloaded in the subclasses.
 
-    public abstract Billett[] buyTickets(String[] names);
+    public abstract Ticket[] buyTickets(String[] names); // This method gets overloaded in the subclasses.
 
     public String toString() {
         String ret = "Name: " + getTribunename() + "\nCapasity: " + getCapasity() + "\nPrice: " + getPrice() + "\nTicketsSold: " + findTicketsSoldCount() + "\nIncome: " + findIncome();
@@ -49,19 +58,19 @@ class StandingTribune extends Tribune {
         return ticketsSold;
     }
 
-    public Billett[] buyTickets(int ticketAmount) {
+    public Ticket[] buyTickets(int ticketAmount) {
         if (getCapasity() < findTicketsSoldCount() + ticketAmount) {
             return null; // Not enough capasity
         }
-        Billett[] retTickets = new StaaplassBillett[ticketAmount];
+        Ticket[] retTickets = new StandingTicket[ticketAmount];
         for (int i = 0; i < ticketAmount; i++) {
-            retTickets[i] = new StaaplassBillett(getTribunename(), getPrice());
+            retTickets[i] = new StandingTicket(getTribunename(), getPrice());
         }
         ticketsSold += ticketAmount;
         return retTickets;
     }
 
-    public Billett[] buyTickets(String[] names) {
+    public Ticket[] buyTickets(String[] names) {
         return buyTickets(names.length);
     }
 }
@@ -100,9 +109,9 @@ class SittingTribune extends Tribune {
         return ret;
     }
 
-    public Billett[] buyTickets(int ticketAmount) {
+    public Ticket[] buyTickets(int ticketAmount) {
         int[] rowInfo = findAvailableRow();
-        Billett[] retTickets = new SitteplassBillett[ticketAmount];
+        Ticket[] retTickets = new SittingTicket[ticketAmount];
         if (rowInfo[1] < ticketAmount) {
             // Not enough seats available in a single row.
             return null;
@@ -111,13 +120,13 @@ class SittingTribune extends Tribune {
         int nextSeat = seatsPrRow - rowInfo[1]; // eg. 4seatsPrRow-2seats=seat2 is first available (indexed)
         for (int i = 0; i < ticketAmount; i++) {
             nextSeat += i;
-            retTickets[i] = new SitteplassBillett(getTribunename(), getPrice(), row, nextSeat);
+            retTickets[i] = new SittingTicket(getTribunename(), getPrice(), row, nextSeat);
         }
         countTakenSeats[row] += ticketAmount;
         return retTickets;
     }
 
-    public Billett[] buyTickets(String[] names) {
+    public Ticket[] buyTickets(String[] names) {
         return buyTickets(names.length);
     }
 
@@ -140,16 +149,16 @@ class VIPTribune extends SittingTribune {
         spectator = new String[rows][cap/rows]; // seatsPrRow = cap/rows
     }
 
-    public Billett[] buyTickets(int ticketAmount) {
+    public Ticket[] buyTickets(int ticketAmount) {
         return null;
     }
 
-    public Billett[] buyTickets(String[] names) {
-        Billett[] tickets = super.buyTickets(names.length); // if I change this to just super.buyTickets(names); it wont work, WHY?
-        if ((tickets != null) && (tickets.length == names.length)) {
+    public Ticket[] buyTickets(String[] names) {
+        Ticket[] tickets = super.buyTickets(names.length); // if I change this to just super.buyTickets(names); it wont work, WHY?
+        if ((tickets != null) && (tickets.length == names.length)) { //Tickets received and right amount of tickets.
             for (int i = 0; i < tickets.length; i++) {
-                SitteplassBillett ticket = (SitteplassBillett) tickets[i];
-                spectator[ticket.getRad()][ticket.getPlass()] = names[i];
+                SittingTicket ticket = (SittingTicket) tickets[i];
+                spectator[ticket.getRow()][ticket.getSeat()] = names[i];
             }
         } else {
             return null;
