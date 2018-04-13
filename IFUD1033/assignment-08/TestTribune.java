@@ -6,7 +6,7 @@
 
 */
 
-import java.util.ArrayList;
+import java.util.*;
 import java.io.*;
 
 class TestTribune {
@@ -120,9 +120,16 @@ class TestTribune {
             System.out.println("\n");
             System.out.println(trib);
         }
+
         // System.out.println("\n");
         // System.out.println(standT + "\n\n");
         // System.out.println(sitT + "\n\n");
         // System.out.println(vT + "\n\n");
+
+        //Sort and print
+        Collections.sort(foundTribunes);
+        for (Tribune trib : foundTribunes) {
+            System.out.println(trib.getTribunename() + " income: " + trib.findIncome());
+        }
     }
 }
