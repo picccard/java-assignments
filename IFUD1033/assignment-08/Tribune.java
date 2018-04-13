@@ -6,8 +6,8 @@
 
 */
 
-
-abstract class Tribune {
+import java.io.Serializable;
+abstract class Tribune implements Comparable <Tribune>, Serializable {
     private final String tribunename;
     private final int capasity;
     private final int price;
@@ -39,6 +39,10 @@ abstract class Tribune {
     public abstract Ticket[] buyTickets(int ticketAmount); // This method gets overloaded in the subclasses.
 
     public abstract Ticket[] buyTickets(String[] names); // This method gets overloaded in the subclasses.
+
+    public int compareTo(Tribune other) {
+        return findIncome() - other.findIncome();
+    }
 
     public String toString() {
         String ret = "Name: " + getTribunename() + "\nCapasity: " + getCapasity() + "\nPrice: " + getPrice() + "\nTicketsSold: " + findTicketsSoldCount() + "\nIncome: " + findIncome();

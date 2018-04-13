@@ -6,6 +6,8 @@
 
 */
 
+import java.util.ArrayList;
+import java.io.*;
 
 class TestTribune {
     public static void main(String[] args) {
@@ -79,9 +81,48 @@ class TestTribune {
         } else {System.out.println("9: failed");}
         //System.out.println(result);
 
-        System.out.println("\n");
-        System.out.println(standT + "\n\n");
-        System.out.println(sitT + "\n\n");
-        System.out.println(vT + "\n\n");
+        // Put Tribunes into a single arraylist object
+        ArrayList<Tribune> tribunes = new ArrayList<Tribune>();
+        tribunes.add(standT);
+        tribunes.add(sitT);
+        tribunes.add(vT);
+
+        //Serialize the arraylist with the tribunes
+        try {
+            FileOutputStream fileOutputStream = new FileOutputStream("tribunes.ser");
+            ObjectOutputStream outStream = new ObjectOutputStream(fileOutputStream);
+            outStream.writeObject(tribunes);
+            outStream.close();
+            System.out.println("\nSerialized done");
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to open file");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        //De-Serialize
+        ArrayList<Tribune> foundTribunes = null;
+        try {
+            FileInputStream fileInputStream = new FileInputStream("tribunes.ser");
+            ObjectInputStream inStream = new ObjectInputStream(fileInputStream);
+            foundTribunes = (ArrayList<Tribune>) inStream.readObject();
+            inStream.close();
+            System.out.println("\nDe-serialize done");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException c) {
+            System.out.println("Tribune class not found");
+            c.printStackTrace();
+         }
+
+        //Final print
+        for (Tribune trib : foundTribunes) {
+            System.out.println("\n");
+            System.out.println(trib);
+        }
+        // System.out.println("\n");
+        // System.out.println(standT + "\n\n");
+        // System.out.println(sitT + "\n\n");
+        // System.out.println(vT + "\n\n");
     }
 }
