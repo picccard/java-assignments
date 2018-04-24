@@ -23,9 +23,9 @@ class FontChangerWindow extends JFrame implements ActionListener {
         // Some window properties
         setTitle(title);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setPreferredSize( new Dimension( 195, 180 ) );
+        setPreferredSize(new Dimension(195, 180));
         setLayout(new FlowLayout());
-        setResizable(true);
+        setResizable(false);
 
         // Sample-label
         lblSampleText = new JLabel("This is some sample text");
