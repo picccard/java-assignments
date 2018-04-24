@@ -23,13 +23,16 @@ class Drawingframe extends JFrame {
     private class DrawingField extends JPanel {
         public void paintComponent(Graphics window) {
             super.paintComponent(window);
+            int radius = 10; // used to center the fillOval on the clicked point
             if (allPoints.size() > 1) { // more than one point is needed to draw
-                Point lastPoint = allPoints.get(0);
+                Point prevPoint = allPoints.get(0);
+                window.fillOval(prevPoint.x-(radius/2), prevPoint.y-(radius/2), radius, radius);
                 for (int i = 1; i < allPoints.size(); i++) {
                     Point currentPoint = allPoints.get(i);
-                    window.drawLine(lastPoint.x, lastPoint.y,
+                    window.fillOval(currentPoint.x-(radius/2), currentPoint.y-(radius/2), radius, radius);
+                    window.drawLine(prevPoint.x, prevPoint.y,
                                     currentPoint.x, currentPoint.y);
-                    lastPoint = currentPoint;
+                    prevPoint = currentPoint;
                 }
             }
         }
