@@ -7,7 +7,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.util.*;
 
-class Drawingframe extends JFrame {
+class Drawingframe extends JFrame implements MouseListener {
     private ArrayList<Point> allPoints = new ArrayList<Point>();
 
     public Drawingframe(String title) {
@@ -16,8 +16,8 @@ class Drawingframe extends JFrame {
         setSize(400, 500);
         DrawingField d = new DrawingField();
         add(d);
-        MouseListen ml = new MouseListen();
-        d.addMouseListener(ml);
+        // MouseListen ml = new MouseListen();
+        d.addMouseListener( this );
     }
 
     private class DrawingField extends JPanel {
@@ -38,7 +38,6 @@ class Drawingframe extends JFrame {
         }
     }
 
-    private class MouseListen implements MouseListener {
         public void mouseClicked(MouseEvent event) {
             Point clickedPoint = event.getPoint();
             allPoints.add(clickedPoint);
@@ -51,7 +50,6 @@ class Drawingframe extends JFrame {
         public void mouseEntered(MouseEvent event) {}
         public void mouseExited(MouseEvent event) {}
     }
-}
 
 class TestDrawingframe {
     public static void main(String[] args) {
