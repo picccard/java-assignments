@@ -10,8 +10,8 @@ import java.util.*;
 class Drawingframe extends JFrame {
     private ArrayList<Point> allPoints = new ArrayList<Point>();
 
-    public Drawingframe(String tittle) {
-        super(tittle);
+    public Drawingframe(String title) {
+        super(title);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(400, 500);
         DrawingField d = new DrawingField();
