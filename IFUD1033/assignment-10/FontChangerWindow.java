@@ -12,9 +12,10 @@ import javax.swing.*;
 
 class FontChangerWindow extends JFrame implements ActionListener {
     private Font fonts[] = {
-        new Font("SansSerif", Font.PLAIN, 12),
-        new Font("Monospaced", Font.PLAIN, 12),
-        new Font("Serif", Font.PLAIN, 12)
+        new Font("SansSerif", Font.PLAIN, 14),
+        new Font("Monospaced", Font.PLAIN, 14),
+        new Font("Serif", Font.PLAIN, 14),
+        new Font("Dialog", Font.PLAIN, 14),
     };
     private JLabel lblSampleText;
 
@@ -22,9 +23,9 @@ class FontChangerWindow extends JFrame implements ActionListener {
         // Some window properties
         setTitle(title);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setPreferredSize( new Dimension( 230, 150 ) );
+        setPreferredSize( new Dimension( 195, 180 ) );
         setLayout(new FlowLayout());
-        setResizable(false);
+        setResizable(true);
 
         // Sample-label
         lblSampleText = new JLabel("This is some sample text");
