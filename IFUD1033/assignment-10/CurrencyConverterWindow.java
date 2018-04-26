@@ -6,15 +6,24 @@
 
 */
 
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
-import javax.swing.JOptionPane;
+/*  ------------------------------------------
+    |     Amount:      |      InputField     |
+    |----------------------------------------|
+    |               ResultString             |
+    |----------------------------------------|
+    |      To sek.     |     To NOK.         |
+    ------------------------------------------
+*/
 
 // 3 rows, 2 colums in each row
 // JLabel("Amount") - JTextField
 // JLabel("Result") streched over whole row
 // JButton("To Swedish kr.") - JButton("To Norwgain kr.")
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.JOptionPane;
 
 class CurrencyConverterWindow extends JFrame implements ActionListener {
     private double inputSum;
@@ -28,10 +37,11 @@ class CurrencyConverterWindow extends JFrame implements ActionListener {
     public CurrencyConverterWindow() {
         setTitle("Currency Converter");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //setLayout(new GridLayout(3,2,5,5));
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
+        // Makes every button take up the same amount of HORIZONTAL space
         gbc.fill = GridBagConstraints.HORIZONTAL;
+        // Spacing
         gbc.insets = new Insets(5, 5, 5, 5);
 
         lblAmount = new JLabel("Amount: ");
