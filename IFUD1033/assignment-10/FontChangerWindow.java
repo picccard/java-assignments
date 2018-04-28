@@ -20,16 +20,23 @@ class FontChangerWindow extends JFrame implements ActionListener {
     private JLabel lblSampleText;
 
     public FontChangerWindow(String title) {
+        int nextRow = 0;
         // Some window properties
         setTitle(title);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setPreferredSize(new Dimension(195, 180));
-        setLayout(new FlowLayout());
-        setResizable(false);
+
+        setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        // Makes every element take up the same amount of HORIZONTAL space, e.g. you can click the radioBtn-text the same width as the widest element
+        //gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.insets = new Insets(5, 50, 5, 50); // topSpacing, leftSpacing, bottomSpacing, rightSpacing
+        gbc.gridx = 0; // All items will be the first in it's own row
 
         // Sample-label
-        lblSampleText = new JLabel("This is some sample text");
-        add(lblSampleText);
+        lblSampleText = new JLabel("This is some very long and nice sample text");
+        lblSampleText.setHorizontalAlignment(JLabel.CENTER);
+        gbc.gridy = nextRow++;
+        add(lblSampleText, gbc);
 
         // RadioButtons for fonts
         ButtonGroup fontBtns = new ButtonGroup();
@@ -37,7 +44,8 @@ class FontChangerWindow extends JFrame implements ActionListener {
             JRadioButton radioBtn = new JRadioButton(font.getFontName());
             radioBtn.addActionListener(this);
             fontBtns.add(radioBtn);
-            add(radioBtn);
+            gbc.gridy = nextRow++;
+            add(radioBtn, gbc);
         }
 
         // Change-font-button
