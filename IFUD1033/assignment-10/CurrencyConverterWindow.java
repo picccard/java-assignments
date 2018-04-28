@@ -15,7 +15,7 @@
     ------------------------------------------
 */
 
-// 3 rows, 2 colums in each row
+// 3 rows, 2 collums in each row
 // JLabel("Amount") - JTextField
 // JLabel("Result") streched over whole row
 // JButton("To Swedish kr.") - JButton("To Norwgain kr.")
@@ -35,8 +35,10 @@ class CurrencyConverterWindow extends JFrame implements ActionListener {
     private JButton buttons[];
 
     public CurrencyConverterWindow() {
+        // Frame properties
         setTitle("Currency Converter");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // Using the GridBagLayout
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         // Makes every button take up the same amount of HORIZONTAL space
@@ -46,6 +48,7 @@ class CurrencyConverterWindow extends JFrame implements ActionListener {
 
         lblAmount = new JLabel("Amount: ");
         lblAmount.setHorizontalAlignment(JLabel.RIGHT);
+        // Sets the row and collum
         gbc.gridx = 0;
         gbc.gridy = 0;
         add(lblAmount, gbc);
@@ -53,14 +56,17 @@ class CurrencyConverterWindow extends JFrame implements ActionListener {
         inputField = new JTextField(15);
         inputField.setEditable(true);
         inputField.setHorizontalAlignment(JTextField.LEFT);
+        // Sets the row and collum
         gbc.gridx = 1;
         gbc.gridy = 0;
         add(inputField, gbc);
 
         lblResult = new JLabel("The calculated result will show up here.");
         lblResult.setHorizontalAlignment(JLabel.CENTER);
+        // Sets the row and collum
         gbc.gridx = 0;
         gbc.gridy = 1;
+        // Makes the label take up 2 collums
         gbc.gridwidth = 2;
         add(lblResult, gbc);
 
@@ -71,7 +77,9 @@ class CurrencyConverterWindow extends JFrame implements ActionListener {
         buttons[1] = new JButton("To Norwegian kr.");
         buttons[1].addActionListener(this);
         buttons[1].setActionCommand("nor");
+        // Back to taking up 1 collum
         gbc.gridwidth = 1;
+        //Sets the row and collum
         gbc.gridx = 0;
         gbc.gridy = 2;
         add(buttons[0], gbc);
@@ -85,13 +93,18 @@ class CurrencyConverterWindow extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String titleBar = "Not a number";
         String infoMessage = "Please enter a number";
+
+        // Check if the input is empty
         if (inputField.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(null, infoMessage, titleBar, JOptionPane.INFORMATION_MESSAGE);
             return;
         }
+
+        // Checks if the input is a number, every number is valid, also negative
         try {
             inputSum = Double.parseDouble(inputField.getText());
         } catch (NumberFormatException nfe) {
+            // Input was not a number
             System.out.println("Could not parse input to double");
             nfe.printStackTrace();
             infoMessage = "Could not interp the input as a number.\nPlease try again.";
@@ -99,6 +112,8 @@ class CurrencyConverterWindow extends JFrame implements ActionListener {
             lblResult.setText("The calculated result will show up here.");
             return;
         }
+
+        // Gets the actionCommand and changes the result label
         String action = e.getActionCommand();
         switch (action) {
             case "swe" :
