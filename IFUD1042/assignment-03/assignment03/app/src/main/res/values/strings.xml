@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">assignment03</string>
+    <string name="app_desc">My Friendlist</string>
+    <string name="new_person">Add a new person</string>
+    <string name="update_person">Update Person</string>
+    <string name="person_name">Name</string>
+    <string name="person_birth">Birth</string>
+
+
+    <string name="person1_name">Eskil</string>
+    <string name="person2_name">Anders</string>
+    <string name="person3_name">Adis</string>
+    <string name="person4_name">Magnus</string>
+    <string-array name="person_names">
+        <item>@string/person1_name</item>
+        <item>@string/person2_name</item>
+        <item>@string/person3_name</item>
+        <item>@string/person4_name</item>
+    </string-array>
+
+
+    <string name="person1_bdate">2016-01-04</string>
+    <string name="person2_bdate">2003-09-25</string>
+    <string name="person3_bdate">1997-12-20</string>
+    <string name="person4_bdate">1998-05-17</string>
+    <string-array name="person_bdates">
+        <item>@string/person1_bdate</item>
+        <item>@string/person2_bdate</item>
+        <item>@string/person3_bdate</item>
+        <item>@string/person4_bdate</item>
+    </string-array>
+
+</resources>
