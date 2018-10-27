@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">assignment02b</string>
+    <string name="add">Adder</string>
+    <string name="multi">Multipliser</string>
+    <string name="answer">Svar:</string>
+    <string name="limit">Øvre grense:</string>
+    <string name="right">Riktig!</string>
+    <string name="wrong">Feil. Riktig svar var</string>
+</resources>
