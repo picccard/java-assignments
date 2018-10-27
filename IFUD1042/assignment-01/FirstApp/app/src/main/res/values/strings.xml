@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Assignment 01 - Menu</string>
+    <string name="waiting_for_menu">Waiting for menu....</string>
+    <string name="menu_created">Menu has been created!</string>
+</resources>
