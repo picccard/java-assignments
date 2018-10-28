@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--    https://www.youtube.com/watch?v=oh4YOj9VkVE
+            Create custom menu
+    -->
+
+
+    <item
+        android:id="@+id/prev"
+        android:icon="@drawable/ic_prev"
+        android:title="@string/previous"
+        app:showAsAction="ifRoom|withText"/> <!-- with text never shows up, no matter how hard i tried -->
+
+    <item
+        android:id="@+id/next"
+        android:icon="@drawable/ic_next"
+        android:title="@string/next"
+        app:showAsAction="ifRoom|withText"/> <!-- with text never shows up, no matter how hard i tried -->
+
+    <item
+        android:id="@+id/about"
+        android:title="@string/about"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/quit"
+        android:title="@string/quit"
+        app:showAsAction="never"/>
+
+</menu>

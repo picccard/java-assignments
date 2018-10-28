@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">assignment04</string>
+
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="about">About</string>
+    <string name="quit">Quit</string>
+    <string name="select">Select a planet or star</string>
+
+    <string-array name="imgTitles">
+        <item>Sun</item>
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
+
+    <string-array name="imgDesc">
+        <item>The Sun is the star at the center of the Solar System</item>
+        <item>Mercury is the smallest and innermost planet in the Solar System</item>
+        <item>Venus is the second planet from the Sun, orbiting it every 224.7 Earth days</item>
+        <item>Earth is the third planet from the Sun and the only astronomical object known to harbor life</item>
+        <item>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System after Mercury</item>
+        <item>Jupiter is the fifth planet from the Sun and the largest in the Solar System</item>
+        <item>Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter</item>
+        <item>Uranus is the seventh planet from the Sun</item>
+        <item>Neptune is the eighth and farthest known planet from the Sun in the Solar System</item>
+    </string-array>
+
+    <integer-array name="imgResource">
+        <item>@drawable/sun_240_192</item>
+        <item>@drawable/mercury_240_192</item>
+        <item>@drawable/venus_240_192</item>
+        <item>@drawable/earth_240_170</item>
+        <item>@drawable/mars_240_192</item>
+        <item>@drawable/jupiter_240_192</item>
+        <item>@drawable/saturn_240_192</item>
+        <item>@drawable/uranus_240_170</item>
+        <item>@drawable/neptune_240_192</item>
+    </integer-array>
+
+</resources>
