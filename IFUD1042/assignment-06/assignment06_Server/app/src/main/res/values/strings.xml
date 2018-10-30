@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">assignment06_Server</string>
+    <string name="hello">Hello World, ServerActivity!</string>
+</resources>
