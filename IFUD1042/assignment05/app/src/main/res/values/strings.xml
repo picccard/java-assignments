@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">assignment05</string>
+    <string name="txtGiveName">What is your name?</string>
+    <string name="txtGiveCreditCard">What is your credit card?</string>
+    <string name="btnSend">Send</string>
+    <string name="btnStartOver">Start Over</string>
+    <string name="txtGiveNumber">Enter a number (1 - 100)</string>
+</resources>
