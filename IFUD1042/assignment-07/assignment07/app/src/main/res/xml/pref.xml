@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- ListView Settings -->
+    <PreferenceCategory
+        android:title="LISTVIEW SETTINGS"
+        android:key="listview_category">
+
+    <ListPreference
+        android:key="key_listview_bgcolor"
+        android:title="Background Color"
+        android:summary="Set the background color "
+        android:entries="@array/bgColor"
+        android:entryValues="@array/bgColorValues"/>
+    </PreferenceCategory>
+
+
+    <!-- Other settings, no function yet -->
+    <PreferenceCategory
+        android:title="SETTINGS SCREEN"
+        android:key="user_categoty"
+        android:summary="User">
+
+        <EditTextPreference
+            android:dialogTitle="Your name"
+            android:dialogMessage="Enter full name"
+            android:inputType="textCapWords"
+            android:key="key_full_name"
+            android:title="Name"
+            android:summary="Eskil Larsen">
+        </EditTextPreference>
+
+        <EditTextPreference
+            android:dialogTitle="Your email"
+            android:dialogMessage="Enter email address"
+            android:inputType="textEmailAddress"
+            android:key="key_email"
+            android:title="Email"
+            android:summary="example@gmail.com">
+        </EditTextPreference>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Player">
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="enable_timer"
+            android:title="Enable sleep timer"/>
+
+        <ListPreference
+            android:dependency="enable_timer"
+            android:key="key_sleep_timer"
+            android:title="Sleep timer"
+            android:summary="Stop playing misic after some time"
+            android:entries="@array/timerList"
+            android:entryValues="@array/timerListValues"/>
+
+        <MultiSelectListPreference
+            android:dialogTitle="Select all your options"
+            android:key="music_type"
+            android:title="Types of music"
+            android:summary="Press to show list"
+            android:entries="@array/typesOfMusic"
+            android:entryValues="@array/typesOfMusicValues"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="OTHER">
+
+        <SwitchPreference
+            android:key="enable_notification"
+            android:editable="true"
+            android:title="Push notifications"/>
+
+        <RingtonePreference
+            android:key="key_notification_ringtone"
+            android:title="Notification ringtone"
+            android:summary="Choose notifications sound"
+            android:ringtoneType="notification"
+            android:dependency="enable_notification"/>
+    </PreferenceCategory>
+</PreferenceScreen>

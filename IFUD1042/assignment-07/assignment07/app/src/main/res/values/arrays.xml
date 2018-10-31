@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Assignment values -->
+
+    <string-array name="bgColor">
+        <item>Blue</item>
+        <item>Green</item>
+        <item>Red</item>
+        <item>White</item>
+    </string-array>
+
+    <string-array name="bgColorValues">
+        <item>BLUE</item>
+        <item>GREEN</item>
+        <item>RED</item>
+        <item>WHITE</item>
+    </string-array>
+
+    <!-- Other values -->
+
+    <string-array name="timerList">
+        <item>After 5 sec</item>
+        <item>After 10 sec</item>
+        <item>After 15 sec</item>
+        <item>After 20 sec</item>
+    </string-array>
+
+    <string-array name="timerListValues">
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+    </string-array>
+
+    <string-array name="typesOfMusic">
+        <item>Pop</item>
+        <item>Rock</item>
+        <item>Hard Rock</item>
+        <item>Indie</item>
+    </string-array>
+
+    <string-array name="typesOfMusicValues">
+        <item>Pop</item>
+        <item>Rock</item>
+        <item>HardRock</item>
+        <item>Indie</item>
+    </string-array>
+</resources>
