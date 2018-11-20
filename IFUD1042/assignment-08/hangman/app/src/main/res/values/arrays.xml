@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Car Brands -->
+    <string-array name="carbrands">
+        <item>Volvo</item>
+        <item>SAAB</item>
+        <item>Kia</item>
+        <item>BMW</item>
+        <item>Lotus</item>
+        <item>Tesla</item>
+        <item>Toyota</item>
+        <item>Volkswagen</item>
+        <item>Ford</item>
+        <item>Mercedes</item>
+    </string-array>
+    <!-- End Car Brands -->
+
+    <!-- Cities -->
+    <string-array name="cities">
+        <item>Dublin</item>
+        <item>Paris</item>
+        <item>Oslo</item>
+        <item>Rome</item>
+        <item>Berlin</item>
+        <item>Riga</item>
+        <item>Budapest</item>
+        <item>Edinburgh</item>
+        <item>London</item>
+        <item>Warsaw</item>
+    </string-array>
+    <!-- End Cities -->
+
+    <!-- Countries  -->
+    <string-array name="countries">
+        <item>Norway</item>
+        <item>Sweden</item>
+        <item>Poland</item>
+        <item>France</item>
+        <item>Italy</item>
+        <item>Ireland</item>
+        <item>Germany</item>
+        <item>Latvia</item>
+        <item>Iceland</item>
+        <item>Scotland</item>
+    </string-array>
+    <!-- End Countries  -->
+
+    <!-- pref values -->
+    <string-array name="languages">
+        <item>Norwegian</item>
+        <item>English</item>
+    </string-array>
+    <string-array name="languages_values">
+        <item>norwegian</item>
+        <item>english</item>
+    </string-array>
+
+    <string-array name="difficulties">
+        <item>Easy</item>
+        <item>Medium</item>
+        <item>Hard</item>
+    </string-array>
+    <string-array name="difficulties_values">
+        <item>easy</item>
+        <item>medium</item>
+        <item>hard</item>
+    </string-array>
+
+    <string-array name="word_categories">
+        <item>Car Brands</item>
+        <item>Cities</item>
+        <item>Countries</item>
+    </string-array>
+    <string-array name="word_categories_values">
+        <item>carbrands</item>
+        <item>cities</item>
+        <item>countries</item>
+    </string-array>
+    <!-- end pref values -->
+</resources>

@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">hangman</string>
+
+    <string name="menu_newGame">Nytt Spill</string>
+    <string name="menu_settings">Instillinger</string>
+    <string name="menu_about">Om spillet</string>
+    <string name="menu_quit">Avslutt</string>
+
+    <string name="gamesPlayed">Spill startet: </string>
+    <string name="gamesWon">Spill vunnet: </string>
+    <string name="gamesLost">Spill tapt: </string>
+    <string name="settingLanguageTitle">Språk</string>
+    <string name="settingLanguageSummary">Velg språk i system instillingene</string>
+    <string name="settingDifficultyTitle">Vanskelighetsgrad</string>
+    <string name="settingDifficultySummary">Velg en vanskelighetsgrad</string>
+    <string name="settingCategorySummary">Vis tilgjengelige kategorier</string>
+    <string name="settingCategoryTitle">Ord kategorier</string>
+    <string name="newGameAlert">Er du sikker på at du starte et nytt spill?</string>
+    <string name="negativeResponse">Nei</string>
+    <string name="positiveResponse">Ja</string>
+    <string name="lostAlert01">Du tapte! Riktig ord var</string>
+    <string name="lostAlert02">Vil du starte ett nytt spill?</string>
+    <string name="winAlert">Du vant! Vil du starte ett nytt spill?</string>
+    <string name="alphabet">QWERTYUIOPÅASDFGHJKLØÆZXCVBNM</string>
+    <string name="menu_show_solution">Vis fasit</string>
+    <string name="menu_reset_stats">Nullstill statistikk</string>
+    <string name="about">Dette er min versjon av hangman.\n\n
+        Hvis du gjetter en riktig bokstav vil løsningen oppdateres med din valgte bokstav.
+        Hvis bokstaven er feil vil spillet forsøke å tegne en hengt mann.\n\n
+        Når hele order er gjettet er spillet vunnet. Hvis tegningen av en hengt mann blir ferdig er spillet tapt.\n\n
+        I instillingene kan man endre spillets vannskegrad og ordkategorier.
+    </string>
+
+    <!--
+    Settings for pref2
+
+    <string name="language_key">languageKey</string>
+    <string name="default_language">english</string>
+
+    <string name="difficulty_key">difficultyKey</string>
+    <string name="default_difficulty">easy</string>
+
+    <string name="word_category_key">wordCategoriesKey</string>
+    <string name="default_word_category">carbrands</string>-->
+    <!--
+    END Settings for pref2
+    -->
+</resources>

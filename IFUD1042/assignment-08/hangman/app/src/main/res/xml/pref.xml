@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Language setting -->
+    <ListPreference
+        android:defaultValue="english"
+        android:entries="@array/languages"
+        android:entryValues="@array/languages_values"
+        android:summary="@string/settingLanguageSummary"
+        android:title="@string/settingLanguageTitle"
+        android:key="@string/language_key" />
+
+    <!-- Difficulty setting -->
+    <ListPreference
+        android:defaultValue="easy"
+        android:entries="@array/difficulties"
+        android:entryValues="@array/difficulties_values"
+        android:summary="@string/settingDifficultySummary"
+        android:title="@string/settingDifficultyTitle"
+        android:key="@string/difficulty_key" />
+
+    <!-- Word categories setting -->
+    <ListPreference
+        android:defaultValue="carbrands"
+        android:entries="@array/word_categories"
+        android:entryValues="@array/word_categories_values"
+        android:summary="@string/settingCategorySummary"
+        android:title="@string/settingCategoryTitle"
+        android:key="@string/word_category_key" />
+
+
+</PreferenceScreen>
